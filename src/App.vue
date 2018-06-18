@@ -4,10 +4,14 @@
     <div>
       <el-button @click="startHacking">Start</el-button>
     </div>
+    <Nav />
+    <router-view />
   </div>
 </template>
 
 <script>
+import Nav from '~/components/Nav'
+
 export default {
   methods: {
     startHacking () {
@@ -18,6 +22,9 @@ export default {
         duration: 5000
       })
     }
+  },
+  components: {
+    Nav
   }
 }
 </script>
