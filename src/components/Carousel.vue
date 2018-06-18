@@ -2,7 +2,8 @@
   <div class="block">
     <el-carousel :height="bannerHeight + 'px'">
       <el-carousel-item v-for="(item,index) in carouselImg" :key="index">
-        <img :src="`../src/assets/carousel/${item.name}`" class="bannerImg" />
+        <!-- <img :src="`../src/assets/carousel/${item.name}`" class="bannerImg" /> -->
+        <div class="bannerImg" :style="`background-image: url(../src/assets/carousel/${item.name});`"></div>
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -12,7 +13,7 @@
 export default {
   data () {
     return {
-      bannerHeight: window.innerHeight,
+      bannerHeight: window.innerHeight - 213,
       carouselImg: [
         {
           name: '1.jpg',
@@ -35,7 +36,7 @@ export default {
   },
   methods: {
     setSize: function () {
-      this.bannerHeight = 740 / 2560 * this.screenWidth
+      this.bannerHeight = 740 / 2560 * this.screenWidth - 213
       if(this.bannerHeight > 740) this.bannerHeight = 740
       if(this.bannerHeight < 360) this.bannerHeight = 360
     }
@@ -55,7 +56,9 @@ export default {
 .bannerImg {
   width: 100%;
   height: inherit;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   min-height: 360px;
   min-width: 1400px;
 }
