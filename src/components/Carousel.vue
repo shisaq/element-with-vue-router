@@ -1,8 +1,7 @@
 <template>
   <div class="block">
     <el-carousel :height="bannerHeight + 'px'">
-      <el-carousel-item v-for="(item,index) in carouselImg" :key="index">
-        <!-- <img :src="`../src/assets/carousel/${item.name}`" class="bannerImg" /> -->
+      <el-carousel-item v-for="(item, index) in carouselImg" :key="index">
         <div class="bannerImg" :style="`background-image: url(../src/assets/carousel/${item.name});`"></div>
       </el-carousel-item>
     </el-carousel>
@@ -13,7 +12,7 @@
 export default {
   data () {
     return {
-      bannerHeight: window.innerHeight - 213,
+      bannerHeight: window.innerHeight / 2,
       carouselImg: [
         {
           name: '1.jpg',
@@ -33,21 +32,6 @@ export default {
         }
       ]
     }
-  },
-  methods: {
-    setSize: function () {
-      this.bannerHeight = 740 / 2560 * this.screenWidth - 213
-      if(this.bannerHeight > 740) this.bannerHeight = 740
-      if(this.bannerHeight < 360) this.bannerHeight = 360
-    }
-  },
-  mounted() {
-    this.setSize();
-    const that = this;
-    window.addEventListener('resize', function() {
-      that.screenWidth = window.innerWidth;
-      that.setSize();
-    }, false);
   }
 }
 </script>
