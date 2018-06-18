@@ -2,7 +2,7 @@
     <div>
         <h2>这是产品页面</h2>
         <div>
-        <el-button @click="startHacking">Start</el-button>
+            <el-button @click="startHacking">Start</el-button>
         </div>
     </div>
 </template>
