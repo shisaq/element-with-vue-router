@@ -5,19 +5,24 @@
         <span>{{product.name}}</span>
         <div class="bottom clearfix">
           <span class="description">{{ product.description }}</span>
-          <el-button type="text" class="button">查看</el-button>
+          <ProductDetail v-bind="product" />
         </div>
       </div>
     </el-card>
 </template>
 
 <script>
+import ProductDetail from './ProductDetail'
+
 export default {
   props: ['product'],
   data () {
     return {
       currentDate: new Date()
     };
+  },
+  components: {
+    ProductDetail
   }
 }
 </script>
@@ -31,11 +36,6 @@ export default {
 .bottom {
   margin-top: 13px;
   line-height: 12px;
-}
-
-.button {
-  padding: 0;
-  float: right;
 }
 
 .image {
